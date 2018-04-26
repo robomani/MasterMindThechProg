@@ -7,6 +7,48 @@
 #include <stdlib.h>
 #include <time.h>
 
+void Initialisation(char(&a_Rep)[5])
+{
+	srand(time(NULL));
+
+	for (int i = 0; i < 5; i++)
+	{
+		int temp = rand() % 8;
+		if (temp == 0)
+		{
+			a_Rep[i] = 'a';
+		}
+		else if (temp == 1)
+		{
+			a_Rep[i] = 'b';
+		}
+		else if (temp == 2)
+		{
+			a_Rep[i] = 'c';
+		}
+		else if (temp == 3)
+		{
+			a_Rep[i] = 'd';
+		}
+		else if (temp == 4)
+		{
+			a_Rep[i] = 'e';
+		}
+		else if (temp == 5)
+		{
+			a_Rep[i] = 'f';
+		}
+		else if (temp == 6)
+		{
+			a_Rep[i] = 'g';
+		}
+		else if (temp == 7)
+		{
+			a_Rep[i] = 'h';
+		}
+	}
+}
+
 
 int main()
 {
@@ -16,7 +58,7 @@ int main()
 	int victoire = 0;
 	std::string playerRep;
 
-	//Initialisation(rep);
+	Initialisation(rep);
 
 	std::cout << "Voici un jeu de Mastemind!" << std::endl;
 
