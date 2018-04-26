@@ -7,6 +7,16 @@
 #include <stdlib.h>
 #include <time.h>
 
+void Regle()
+{
+	std::cout << "Vous devez entrer 5 lettres parmis celles-ci :(a/b/c/d/e/f/g/h) sans espaces" << std::endl;
+	std::cout << "Laissez un espace entre chacune de vos lettres" << std::endl;
+	std::cout << "Vous avez 8 essais pour trouver la combinaison secrete" << std::endl;
+	std::cout << "Après chaque essais vous aurez 2 informations :  " << std::endl;
+	std::cout << "1) Le nombre de bonne lettres au [B]on endroit" << std::endl;
+	std::cout << "2) Le nombre de bonne lettres au mauvais endroit donc [PB] presque bon" << std::endl;
+}
+
 void Initialisation(char(&a_Rep)[5])
 {
 	srand(time(NULL));
@@ -62,7 +72,7 @@ int main()
 
 	std::cout << "Voici un jeu de Mastemind!" << std::endl;
 
-	//Regle();
+	Regle();
 
 	for (int i = 0; i < 8; i++)
 	{
@@ -84,7 +94,7 @@ int main()
 			//ShowBoard(board, right);
 			if (i != sizeof(board) / sizeof(board[0]))
 			{
-				//Regle();
+				Regle();
 			}
 			
 		}
