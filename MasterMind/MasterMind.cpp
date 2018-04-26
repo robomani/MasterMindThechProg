@@ -7,6 +7,49 @@
 #include <stdlib.h>
 #include <time.h>
 
+void Compare(char rep[5], char board[5],int (&right)[2],int& victoire)
+{
+	int tempRight = 0;
+	int tempMR = 0;
+	char tempRep[5];
+	char tembBoard[5];
+
+	for (int i = 0; i < 5; i++)
+	{
+		tempRep[i] = rep[i];
+		tembBoard[i] = board[i];
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		if (tempRep[i] == tembBoard[i])
+		{
+			tempRight++;
+			tempRep[i] = 'z';
+			tembBoard[i] = 'y';
+		}
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			if (tempRep[i] != 'z' && tembBoard[j] != 'y' && tempRep[i] == tembBoard[j])
+			{
+				tempMR++;
+				tempRep[i] = 'z';
+				tembBoard[i] = 'y';
+			}
+		}	
+	}
+
+	if (tempRight == 5)
+	{
+		victoire = 1;
+	}
+	right[0] = tempRight;
+	right[1] = tempMR;
+}
 
 void ShowBoard(char a_Board[][5], int a_right[][2])
 {
@@ -110,7 +153,7 @@ int main()
 				}
 			}
 			tempRep = 0;
-			//Compare(rep, board[i], right[i], victoire);
+			Compare(rep, board[i], right[i], victoire);
 			ShowBoard(board, right);
 			if (i != sizeof(board) / sizeof(board[0]))
 			{
