@@ -7,6 +7,26 @@
 #include <stdlib.h>
 #include <time.h>
 
+
+void ShowBoard(char a_Board[][5], int a_right[][2])
+{
+	std::string ligne;
+	std::string gameBoard;
+	for (int i = 0; i < 8; i++)
+	{
+		ligne = "";
+		gameBoard = "";
+		for (int j = 0; j<5; j++)
+		{
+			gameBoard = gameBoard + a_Board[i][j] + " ";
+			ligne += "--";
+		}
+		gameBoard += "| B " + std::to_string(a_right[i][0]) + " " + "| PB " + std::to_string(a_right[i][1]);
+		std::cout << gameBoard << std::endl;
+		std::cout << ligne << std::endl;
+	}
+}
+
 void Regle()
 {
 	std::cout << "Vous devez entrer 5 lettres parmis celles-ci :(a/b/c/d/e/f/g/h) sans espaces" << std::endl;
@@ -91,7 +111,7 @@ int main()
 			}
 			tempRep = 0;
 			//Compare(rep, board[i], right[i], victoire);
-			//ShowBoard(board, right);
+			ShowBoard(board, right);
 			if (i != sizeof(board) / sizeof(board[0]))
 			{
 				Regle();
